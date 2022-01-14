@@ -1,0 +1,40 @@
+﻿@using BlazorYuar.Data
+@page "/counter"
+
+<h1>Counter</h1>
+
+
+@if (studlist == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Возраст</th>
+                <th>Курс</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stud in studlist)
+            {
+                <tr>
+                    <td>@stud.Sur</td>
+                    <td>@stud.Name</td>
+                    <td>@stud.Year</td>
+                    <td>@stud.Kurs</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    public static List<Student> studlist = Student.AddSt();
+    
+}
