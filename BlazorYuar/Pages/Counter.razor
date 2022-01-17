@@ -1,9 +1,7 @@
 ﻿@using BlazorYuar.Data
 @page "/counter"
-
-<h1>Counter</h1>
-
-
+    <h1>Выберите список</h1>
+<button class="btn btn-primary" @onclick="stud">Cписок студентов</button>
 @if (studlist == null)
 {
     <p><em>Loading...</em></p>
@@ -17,7 +15,7 @@ else
                 <th>Имя</th>
                 <th>Возраст</th>
                 <th>Курс</th>
-                
+
             </tr>
         </thead>
         <tbody>
@@ -34,7 +32,82 @@ else
     </table>
 }
 
+<button class="btn btn-primary" @onclick="carad">Cписок машин</button>
+@if (carlist == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Марка</th>
+                <th>Дата выпуска</th>
+                <th>Страна</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carad in carlist)
+            {
+                <tr>
+                    <td>@carad.Name</td>
+                    <td>@carad.Brand</td>
+                    <td>@carad.YeaarRelease</td>
+                    <td>@carad.Country</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<button class="btn btn-primary" @onclick="gem">Cписок машин</button>
+@if (gamelist == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Год выпуска</th>
+                <th>Категория</th>
+                <th>Страна</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gem in gamelist)
+            {
+                <tr>
+                    <td>@gem.Name</td>
+                    <td>@gem.Year</td>
+                    <td>@gem.Category</td>
+                    <td>@gem.Country</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 @code {
-    public static List<Student> studlist = Student.AddSt();
-    
+    public static List<Student> studlist;
+    public static List<Car> carlist;
+    public static List<Game> gamelist;
+    private void stud()
+    {
+        studlist = Student.AddSt();
+    }
+
+    private void carad()
+    {
+        carlist = Car.AddCar();
+    }
+    private void gem()
+    {
+        gamelist = Game.AddGem();
+    }
+
 }

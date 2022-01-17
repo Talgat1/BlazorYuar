@@ -12,16 +12,14 @@ namespace BlazorYuar.Data
         public string Name { get; set; }
         public int Year { get; set; }
         public int Kurs { get; set; }
-        public string Post { get; set; }
         
-        public Student(string sur, string name, int year, int kurs, string post)
+        
+        public Student(string sur, string name, int year, int kurs)
         {            
             sur = Sur;
             name = Name;
             year = Year;
-            kurs = Kurs;
-            post = Post;
-
+            kurs = Kurs;          
         }
 
         public Student()
@@ -36,21 +34,9 @@ namespace BlazorYuar.Data
             st.Add(new Student() { Sur = "Иванова", Name = "Марина", Year = 18, Kurs = 3});
             st.Add(new Student() { Sur = "Кушин", Name = "Александр", Year = 16, Kurs = 1});
             st.Add(new Student() { Sur = "Рожкова", Name = "Мария", Year = 17, Kurs = 2});
-            return st;
-            
+            return st;            
         }
-        /*public Task<Student[]> GetListSt()
-        {
-            
-            return List<Student>();
-        }
-
-        private Task<Student[]> List<Student>()
-        {
-            throw new NotImplementedException();
-        }*/
     }
-
 }
 
     
