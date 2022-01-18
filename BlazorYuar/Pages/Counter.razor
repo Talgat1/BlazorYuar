@@ -1,113 +1,17 @@
 ﻿@using BlazorYuar.Data
 @page "/counter"
-    <h1>Выберите список</h1>
-<button class="btn btn-primary" @onclick="stud">Cписок студентов</button>
-@if (studlist == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Фамилия</th>
-                <th>Имя</th>
-                <th>Возраст</th>
-                <th>Курс</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var stud in studlist)
-            {
-                <tr>
-                    <td>@stud.Sur</td>
-                    <td>@stud.Name</td>
-                    <td>@stud.Year</td>
-                    <td>@stud.Kurs</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<h1>Counter</h1>
 
-<button class="btn btn-primary" @onclick="carad">Cписок машин</button>
-@if (carlist == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Название</th>
-                <th>Марка</th>
-                <th>Дата выпуска</th>
-                <th>Страна</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var carad in carlist)
-            {
-                <tr>
-                    <td>@carad.Name</td>
-                    <td>@carad.Brand</td>
-                    <td>@carad.YeaarRelease</td>
-                    <td>@carad.Country</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+<p>Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="gem">Cписок игр</button>
-@if (gamelist == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Название</th>
-                <th>Год выпуска</th>
-                <th>Категория</th>
-                <th>Страна</th>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var gem in gamelist)
-            {
-                <tr>
-                    <td>@gem.Name</td>
-                    <td>@gem.Year</td>
-                    <td>@gem.Category</td>
-                    <td>@gem.Country</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
 @code {
-    public static List<Student> studlist;
-    public static List<Car> carlist;
-    public static List<Game> gamelist;
-    private void stud()
-    {
-        studlist = Student.AddSt();
-    }
+    private int currentCount = 0;
 
-    private void carad()
+    private void IncrementCount()
     {
-        carlist = Car.AddCar();
+        currentCount++;
     }
-    private void gem()
-    {
-        gamelist = Game.AddGem();
-    }
-
 }
