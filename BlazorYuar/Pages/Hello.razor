@@ -20,13 +20,13 @@ else if (gamelist == null && carlist == null)
             </tr>
         </thead>
         <tbody>
-            @foreach (var stud in studlist)
+            @foreach (var studet in studlist)
             {
                 <tr>
-                    <td>@stud.Sur</td>
-                    <td>@stud.Name</td>
-                    <td>@stud.Year</td>
-                    <td>@stud.Kurs</td>
+                    <td>@studet.Sur</td>
+                    <td>@studet.Name</td>
+                    <td>@studet.Year</td>
+                    <td>@studet.Faculty</td>
                 </tr>
             }
         </tbody>
@@ -102,6 +102,7 @@ else if (gamelist == null && studlist == null)
             studlist = Student.AddSt();
             carlist = null;
             gamelist = null;
+            
 
         }
 
