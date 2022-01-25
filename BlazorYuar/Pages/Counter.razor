@@ -2,29 +2,64 @@
 @page "/counter"
 
 
-    <div class="students">
-        <p><b>Имя:</b></p>
-        <p><input type="text" @bind-value="studname" /></p>
-        <p><b>Фамилия:</b></p>
-        <p><input type="text" @bind-value="studsur" /></p>
-        <p><b>Возраст:</b></p>
-        <p><input type="number" @bind-value="studyear" /></p>
-        <p><b>Факультет:</b></p>
-        <p><input type="text" @bind-value="studfaculty" /></p>
-    </div>
+<div class="students">
+    <p><b>Имя:</b></p>
+    <p><input type="text" @bind-value="studname" /></p>
+    <p><b>Фамилия:</b></p>
+    <p><input type="text" @bind-value="studsur" /></p>
+    <p><b>Возраст:</b></p>
+    <p><input type="number" @bind-value="studyear" /></p>
+    <p><b>Факультет:</b></p>
+    <p><input type="text" @bind-value="studfaculty" /></p>
+</div>
+<button class="btn btn-primary" @onclick="stud">Cписок студентов</button>
+@if (lilist == null)
+{
+    <p><em>Loading...</em></p>
+}
+else 
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Возраст</th>
+                <th>Курс</th>
 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var studet in lilist)
+            {
+                <tr>
+                    <td>@studet.Sur</td>
+                    <td>@studet.Name</td>
+                    <td>@studet.Year</td>
+                    <td>@studet.Faculty</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 <button class="btn btn-primary" @onclick="Regis">Registration</button>
 
 @code {
-    public static List<Student> studlist;
-    private string studname;
+    public static List<Student> lilist;
+    public string studname;
     private string studsur;
     private int studyear;
     private string studfaculty;
 
+    private void stud()
+        {                     
+            lilist = Student.AddLili();                        
+        }
 
-    private void Regis()
+    public void Regis()
     {
-        Student.AddToList(studsur, studname,  studyear, studfaculty);
+        lilist = null;
+        Student.AddToList(studsur, studname, studyear, studfaculty);
     }
+
 }

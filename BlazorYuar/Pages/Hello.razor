@@ -68,7 +68,7 @@ else if (gamelist == null && studlist == null)
     {
         <p><em>Loading...</em></p>
     }
-    else if (carlist == null && carlist == null)
+    else if (studlist == null && carlist == null)
     {
         <table class="table">
             <thead>
@@ -97,25 +97,27 @@ else if (gamelist == null && studlist == null)
         public static List<Student> studlist;
         public static List<Car> carlist;
         public static List<Game> gamelist;
+        //int n = 0;
         private void stud()
-        {
+        {                     
             studlist = Student.AddSt();
+            //n++;
             carlist = null;
             gamelist = null;
             
-
         }
 
         private void carad()
-        {
+        {           
             carlist = Car.AddCar();
-            studlist = null;
             gamelist = null;
+            studlist = null;
+
         }
         private void gem()
-        {
+        {            
             gamelist = Game.AddGem();
+            carlist = null;            
             studlist = null;
-            carlist = null;
         }
 }

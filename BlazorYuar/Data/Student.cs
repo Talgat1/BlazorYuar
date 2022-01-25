@@ -12,8 +12,9 @@ namespace BlazorYuar.Data
         public string Name { get; set; }
         public int Year { get; set; }
         public string Faculty { get; set; }
-        public static List<Student> st = new List<Student>();
-
+        public static List<Student> studlist = new List<Student>();
+        //Student stud = new Student();
+        //public static List<Student> stli = new List<Student>();
         public Student(string sur, string name, int year, string faculty)
         {            
             Sur = sur;
@@ -22,25 +23,46 @@ namespace BlazorYuar.Data
             Faculty = faculty;          
         }
 
-        public static void AddToList(string surnamep, string namep, int year, string facultyp)
-        {
-            Student std = new Student(surnamep, namep, year, facultyp);
-            st.Add(std);
-        }
         public Student()
         {
         }
 
+        public static void AddToList(string surnamep, string namep, int year, string facultyp)
+        {
+            List<Student> lilist = new List<Student>();
+            Student stud = new Student(surnamep, namep, year, facultyp);
+            //Student.AddToList(studsur, studname, studyear, studfaculty);
+            lilist.Add(stud);
+        }
+       
         public static List<Student> AddSt()
         {
-            //List<Student> st = new List<Student>();
-            st.Add(new Student() { Sur = "Иванов", Name = "Иван", Year = 16, Faculty = "Программист" });
-            st.Add(new Student() { Sur = "Смирнов", Name = "Иван", Year = 17, Faculty = "Программист" });
-            st.Add(new Student() { Sur = "Иванова", Name = "Марина", Year = 18, Faculty = "Программист" });
-            st.Add(new Student() { Sur = "Кушин", Name = "Александр", Year = 16, Faculty = "Программист" });
-            st.Add(new Student() { Sur = "Рожкова", Name = "Мария", Year = 17, Faculty = "Программист" });
-            return st;            
+            List<Student> studlist = new List<Student>();
+            studlist.Add(new Student() { Sur = "Иванов", Name = "Иван", Year = 16, Faculty = "Программист" });
+            studlist.Add(new Student() { Sur = "Смирнов", Name = "Иван", Year = 17, Faculty = "Программист" });
+            studlist.Add(new Student() { Sur = "Иванова", Name = "Марина", Year = 18, Faculty = "Программист" });
+            studlist.Add(new Student() { Sur = "Кушин", Name = "Александр", Year = 16, Faculty = "Программист" });
+            studlist.Add(new Student() { Sur = "Рожкова", Name = "Мария", Year = 17, Faculty = "Программист" });
+            //studlist.Add(stud);
+            //st.Add(stud);
+            return studlist;
+           
         }
+        public static List<Student> AddLili()
+        {
+            List<Student> lilist = new List<Student>();
+            lilist.Add(new Student() { Sur = "Иванов", Name = "Иван", Year = 16, Faculty = "Программист" });
+            lilist.Add(new Student() { Sur = "Смирнов", Name = "Иван", Year = 17, Faculty = "Программист" });
+            lilist.Add(new Student() { Sur = "Иванова", Name = "Марина", Year = 18, Faculty = "Программист" });
+            lilist.Add(new Student() { Sur = "Кушин", Name = "Александр", Year = 16, Faculty = "Программист" });
+            lilist.Add(new Student() { Sur = "Рожкова", Name = "Мария", Year = 17, Faculty = "Программист" });
+            //studlist.Add(stud);
+            //st.Add(stud);
+            return lilist;
+
+        }
+
+
     }
 }
 
